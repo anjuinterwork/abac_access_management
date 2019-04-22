@@ -99,7 +99,7 @@ var getRegisteredUser = async function (username, userOrg, isJson) {
 		}
 	
    //enrolling the user,if user is already enrolled then  reenrolling the user
-	var enrollresponse= await fabric_ca_client.enroll({enrollmentID:username,enrollmentSecret:'auXYNvqjggtv'});
+	var enrollresponse= await fabric_ca_client.enroll({enrollmentID:username,enrollmentSecret:secret});
 	console.log(enrollresponse)
 
  user = await client.createUser({username:username,mspid:'Org1MSP',cryptoContent:{privateKeyPEM:enrollresponse.key.toBytes(),signedCertPEM:enrollresponse.certificate}
